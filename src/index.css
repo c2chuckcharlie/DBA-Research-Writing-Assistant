@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAFAF7;
+  --color-parchment: #F5F3EE;
+  --color-sage: #4A6741;
+  --color-sage-light: #E8EFE7;
+  --color-sage-mid: #7A9E72;
+  --color-ink: #1C1C1A;
+  --color-ink-mid: #4A4A47;
+  --color-ink-light: #8A8A85;
+  --color-border: #E2DDD5;
+  --color-gold: #B8860B;
+  
+  --font-serif: "Lora", serif;
+  --font-sans: "DM Sans", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream font-sans text-ink leading-relaxed;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+.card {
+  @apply bg-white border border-border rounded-xl p-6 shadow-sm;
+}
+
+.field-label {
+  @apply block text-sm font-medium text-ink mb-2;
+}
+
+.input-base {
+  @apply w-full bg-parchment border border-border rounded-lg px-4 py-2 text-sm outline-none transition-all focus:border-sage-mid focus:bg-white focus:ring-4 focus:ring-sage/10;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 bg-sage hover:bg-[#3A5331] text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-transform active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 bg-white border border-border hover:bg-parchment text-ink px-6 py-2.5 rounded-lg text-sm font-medium transition-colors;
+}
+
+@keyframes pulse-custom {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+.loading-dot {
+  @apply inline-block w-1.5 h-1.5 rounded-full bg-current;
+  animation: pulse-custom 1.2s infinite;
+}
+
